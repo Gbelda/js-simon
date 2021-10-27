@@ -16,6 +16,8 @@ ${generatedNumbers}`)
 
 
 let timer = 29
+let result = []
+let resultEl = document.querySelector('.result')
 // Da li parte un timer di 30 secondi.
 let countdown = setInterval(function () {
     document.querySelector('.timer').innerHTML = timer
@@ -25,9 +27,17 @@ let countdown = setInterval(function () {
         document.querySelector('.timer').innerHTML = ''
         for (let i = 0; i < generatedNumbers.length; i++) {
             let userNumber = parseInt(prompt('inserisci uno dei numeri della sequenza precedente'))
-            generatedNumbers.filter(matchNumbers(generatedNumbers, userNumber))
+            if (generatedNumbers.includes(userNumber)) {
+                result.push(userNumber)
+                console.log(result);
+            }
         }
+        /* Dopo che sono stati inseriti i 5 numeri,
+il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
+        resultEl.innerHTML = `Hai ricordato ${result.length} numeri.
+        che sono: ${result}`
     }
+
 }, 1000);
 
 
