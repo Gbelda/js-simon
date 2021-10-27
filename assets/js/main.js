@@ -15,20 +15,32 @@ Ricordati questa sequenza di numeri:
 ${generatedNumbers}`)
 
 
-let timer = 30
+let timer = 29
 // Da li parte un timer di 30 secondi.
 let countdown = setInterval(function () {
     document.querySelector('.timer').innerHTML = timer
     timer--
-    if (timer == -1) {
+    if (timer == -2) {
         clearInterval(countdown)
+        document.querySelector('.timer').innerHTML = ''
+        for (let i = 0; i < generatedNumbers.length; i++) {
+            let userNumber = parseInt(prompt('inserisci uno dei numeri della sequenza precedente'))
+            generatedNumbers.filter(matchNumbers(generatedNumbers, userNumber))
+        }
     }
 }, 1000);
 
+
 /* Dopo 30 secondi l'utente deve inserire, uno alla volta,
 i numeri che ha visto precedentemente, tramite il prompt(). */
+// setTimeout(function () {
+
+// }, 31000);
 
 
+function matchNumbers(array, number) {
+    return array.includes(number)
+}
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
