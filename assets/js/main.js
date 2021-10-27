@@ -34,7 +34,6 @@ let countdown = setInterval(function () {
                 if (!result.includes(userNumber)) {
                     result.push(userNumber)
                 }
-                console.log(result);
             }
         }
         /* Dopo che sono stati inseriti i 5 numeri,
@@ -48,10 +47,6 @@ let countdown = setInterval(function () {
 
 
 
-
-function matchNumbers(array, number) {
-    return array.includes(number)
-}
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
