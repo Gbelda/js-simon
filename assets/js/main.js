@@ -35,7 +35,7 @@ let countdown = setInterval(function () {
         /* Dopo che sono stati inseriti i 5 numeri,
         il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
         resultEl.innerHTML = `Punteggio = ${result.length}. <br>
-         I numeri ricordati: ${result} <br>`
+         I numeri ricordati: <br> ${result} `
     }
 
 }, 1000);
