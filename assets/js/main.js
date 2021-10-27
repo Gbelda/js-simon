@@ -25,27 +25,28 @@ let countdown = setInterval(function () {
     if (timer == -2) {
         clearInterval(countdown)
         document.querySelector('.timer').innerHTML = ''
+
+        /* Dopo 30 secondi l'utente deve inserire, uno alla volta,
+        i numeri che ha visto precedentemente, tramite il prompt(). */
         for (let i = 0; i < generatedNumbers.length; i++) {
             let userNumber = parseInt(prompt('inserisci uno dei numeri della sequenza precedente'))
             if (generatedNumbers.includes(userNumber)) {
-                result.push(userNumber)
+                if (!result.includes(userNumber)) {
+                    result.push(userNumber)
+                }
                 console.log(result);
             }
         }
         /* Dopo che sono stati inseriti i 5 numeri,
-il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
-        resultEl.innerHTML = `Hai ricordato ${result.length} numeri.
-        che sono: ${result}`
+        il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
+        resultEl.innerHTML = `Punteggio = ${result.length}.
+         Numeri ricordati: ${result}`
     }
 
 }, 1000);
 
 
-/* Dopo 30 secondi l'utente deve inserire, uno alla volta,
-i numeri che ha visto precedentemente, tramite il prompt(). */
-// setTimeout(function () {
 
-// }, 31000);
 
 
 function matchNumbers(array, number) {
