@@ -1,7 +1,4 @@
 
-/* Dopo che sono stati inseriti i 5 numeri,
-il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
-
 // Un alert() espone 5 numeri generati casualmente.
 let generatedNumbers = []
 while (generatedNumbers.length < 5) {
